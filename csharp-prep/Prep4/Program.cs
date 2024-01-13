@@ -7,8 +7,7 @@ class Program
     {   
         int userNumber = 0;
         List<int> userNumberList = new List<int>();
-        int numbersCount = 0;
-                    
+        int numbersCount = 0;                    
 
         do
         {       
@@ -33,12 +32,13 @@ class Program
             Console.WriteLine($"The sum is: {sum }");
 
             double aver = userNumberList.Average();
-            Console.WriteLine($"The average is: {aver}");
-
+            Console.WriteLine($"The average is: {aver}");          
+            
             int largest = userNumberList.Max();
             Console.WriteLine($"The largest number is: {largest} ");
-            
-            Console.WriteLine("The smallest positive number is: ");
+
+            Console.WriteLine($"The smallest positive number is: "); 
+
 
             userNumberList.Sort();  // Sort the list in an ascending order            
             Console.WriteLine($"The sorted list is:");
