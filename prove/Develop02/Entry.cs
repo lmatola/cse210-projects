@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+using System.Collections.Generic;
 
 public class Entry 
 
@@ -10,11 +12,9 @@ public string _entryText;
 
       public void Display()
     {
-        Console.WriteLine(_date + " - " + "Prompt: " + _promptText);
-        Console.WriteLine(_entryText);
-        
+        Console.WriteLine();
+        Console.WriteLine($"Date: {_date} - Prompt: {_promptText}");
+        Console.WriteLine($"{_entryText}");            
     }
-
-
 
 }

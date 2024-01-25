@@ -1,22 +1,26 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 
 public class Journal 
 {
-    public List<Entry> _entries = new List<Entry>();
-    
+    public List<Entry> _entries = new List<Entry>();    
 
-      public void AddEntry()
-
-    {       
-        Console.Write("> ");
-        string content = Console.ReadLine();      
+      public void AddEntry(Entry newEntry)
+    {        
+        _entries.Add(newEntry);  
+          
     }
 
     public void DisplayAll() 
     {
-
-        
+        foreach (Entry entry in _entries)
+        {
+            // This calls the Display method on each entry
+            entry.Display();
+                        
+        }
+        Console.WriteLine(" ");        
     }
 
     public void SaveToFile() 
