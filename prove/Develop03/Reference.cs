@@ -2,35 +2,58 @@ public class Reference
 {
     private string _book;
     private int _chapter;
-    private int _Verse;
+    private int _verse;
     private int _endVerse;
 
 
-
-    public Reference(string book, int chapter, int verse)
-
+    public string GetBook()
     {
-        _book = book;
-        _chapter = chapter;
-        _Verse = verse;
-
-
+        return _book;
     }
 
-    public Reference(string book, int chapter, int startVerse, int endVerse)
 
+    public void SetBook(string book)
     {
         _book = book;
+    }
+
+    public int GetChapter()
+    {
+        return _chapter;
+    }
+
+
+    public void SetChapter(int chapter)
+    {
         _chapter = chapter;
-        _Verse = startVerse;
-        _Verse = endVerse;
+    }
 
         
+    public int GetVerse()
+    {
+        return _verse;
+    }
+
+
+    public void SetVerse(int verse)
+    {
+        _verse = verse;
+    }
+
+    public int GetEndVerse()
+    {
+        return _endVerse;
+    }
+
+
+    public void SetEndVerse(int endverse)
+    {
+        _endVerse = endverse;
     }
 
     public string GetDisplayText()  //string
     {
-        Console.WriteLine($"{_book} {_chapter}:{_verse}");
+        return $"{_book} {_chapter}:{_verse}-{_endVerse}";
     }
 
 }
