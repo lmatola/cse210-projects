@@ -1,48 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 public class Word
 {
     private string _text;
-    //private bool _isHidden;
+    public bool _isHidden;
 
-
-    public string GetText()
-    { 
-
-        return _text;
-
-    }
-
-    public void SetText(string text)
+    public Word(string text)
     {
         _text = text;
+        _isHidden = false;
+    }
+   
+    public void Hide()
+    {       
+        _isHidden = true; 
     }
 
-    public void Hide(string text)
-    {
-
-       _text = text;
-
+    public void Show()
+    {       
+       _isHidden = false;
     }
-
-
-    public void Show(string text)
-    {
-
-       
-        _text = text;
-
-    }
-
 
     public bool IsHidden()
     {
-        return "";
+        return _isHidden;
     }
-
 
     public string GetDisplayText()
     {
-        return _text;
-        
+        return _text;        
     }
 
 }

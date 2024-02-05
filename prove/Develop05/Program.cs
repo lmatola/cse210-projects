@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("Hello Develop05 World!");
     }
 
-            Console.WriteLine("AAA");
+        Console.WriteLine("AAA");
         Console.ReadLine();
         Console.Clear();
 
@@ -47,4 +47,5 @@ class Program
         Word hide = new Word();
         hide.SetText(string.Join(" ", words));
         Console.WriteLine(hide.Hide());
+    }
 }
