@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Threading;
+
 public class Activity
 {
     private string _name;
@@ -41,14 +45,19 @@ public class Activity
     }
 
 
-    public Activity()
+    public Activity(string name, string description)
     {
-
+        _name = name;
+        _description = description;
     }
 
     public void DisplayStartingMessage()
     {
+        Console.WriteLine($"Starting {_name} - {_description}");
+        SetDuration();
 
+        Console.WriteLine("Prepare to begin...");
+        PauseForSeconds(3);
     }
 
 

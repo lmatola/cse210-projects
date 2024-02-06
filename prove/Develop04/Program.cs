@@ -18,9 +18,13 @@ class Program
         Console.WriteLine("Select a choice from the menu:");
 
         BreathingActivity breathingactivity = new BreathingActivity();
-        ReflectingActivity reflectingactivity = new ReflectingActivity();
-        ListingActivity listingactivity = new ListingActivity();
+        breathingactivity.Run();
 
+        ReflectingActivity reflectingactivity = new ReflectingActivity();
+        reflectingactivity.Run();
+
+        ListingActivity listingactivity = new ListingActivity();
+        listingactivity.Run();
 
     }
 }
