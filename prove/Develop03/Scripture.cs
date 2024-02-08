@@ -1,52 +1,39 @@
 using System;
 using System.Text;
+using System.IO;
 using System.Collections.Generic;
 
 public class Scripture
 {
-    private Reference _reference;  
+    private Reference _references;  
     private List<Word> _words = new List<Word>();
     
-    public Scripture(Reference reference, string text)
+    public Scripture(Reference references, string text)
     {       
         string[]words = text.Split(" ");
-        _references = references;
+       _references = references;
 
         foreach (string sWord in words) 
         {
             Word word = new Word(sWord);
             _words.Add(word);
-        }      
-
+        } 
     }
 
-
-    public void HideRandomWords(int numberToHide)
-    {
-        Random randomGenerator = new Random();
-        int index = randomGenerator.Next(_words.Count);
-
-        while (_words[index].IsHidden()) {
-            index = randomGenerator.Next(_words.Count);
-        }
-        _words[index].HideWord();
-        return IsCompletlyHidden();
-       
-    }
-
-
-    public string GetDisplayText()   //string
+    public void GetDisplayText()
     {        
         _references.DisplayText();
 
-        foreach (Word word in _words){
-            word.DisplayWord();
+        foreach (Word word in _words)
+        {
+            word.GetDisplayText();
         }
     }
 
     public bool IsCompletlyHidden()  //bool
     {
-        bool isCompletlyHidden = true; 
+        bool isCompletlyHidden = true;
+
         foreach (Word word in _words)
         {   
             isCompletlyHidden = isCompletlyHidden && word.IsHidden();
@@ -54,6 +41,22 @@ public class Scripture
       
         return isCompletlyHidden;
     }
+
+    public bool HideRandomWords()
+    {
+        Random rnd = new Random();
+        int index = rnd.Next(_words.Count);
+
+        while (_words[index].IsHidden()) 
+        {
+            index = rnd.Next(_words.Count);
+        }
+
+        _words[index].Hide();
+
+        return IsCompletlyHidden();
+    }
+
 }
 
 

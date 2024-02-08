@@ -5,44 +5,34 @@ class Program
     static void Main(string[] args)
     {     
         
-        //Scripture scripture = new Scripture();
-
-        // ListOfScripture listOfScripture = new ListOfScripture();        
-        // listOfScripture.ScriptureAdd(new Scripture(new Reference("Proverbs", 3, 5, 6), "Trust in the LORD with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths."));
-                
-
-        // Reference reference = new Reference("Proverbs", 3, 5, 6);
-        // reference.DisplayText();  
-
-        // Console.WriteLine(reference.DisplayText());
-
         string quit = "";
 
-        Console.WriteLine("Welcome to Scripture Memory");   
-
         string book = "Proverbs";
-        string chapter = "3";
-        string verse = "5";
-        string endVerse = "6";
-        string scripture = "Trust in the LORD with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";
+        int chapter = 3;
+        int verse = 5;
+        int endVerse = 6;
+        string scriptureVerse = "Trust in the LORD with all thine heart and lean not unto thine own understanding; in all thy ways acknowledge him, and he shall direct thy paths.";
                 
+             
         Reference reference = new Reference(book, chapter, verse, endVerse);
         
-        Scripture scripture = new Scripture(reference,scripture);
+        Scripture scripture = new Scripture(reference, scriptureVerse);
 
         while (quit != "quit" && !scripture.IsCompletlyHidden())
         {
 
             Console.Clear();
-            scripture.GetRenderedText();
-
+            Console.WriteLine("Welcome to Scripture Memorizer!");
             Console.WriteLine();
+            scripture.GetDisplayText();
+            Console.WriteLine();
+
             Console.WriteLine();
             
-            bool HidedW = scripture.HideWords();
+            bool HideW = scripture.HideRandomWords();
             Console.WriteLine($"{HideW}");
 
-            Console.Write("Enter 'quit' to quit: ");
+            Console.WriteLine("Press Enter to continue or type 'quit' to finish: ");
             quit = Console.ReadLine();       
         }
        

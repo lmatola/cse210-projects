@@ -13,9 +13,10 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    public string DisplayText()
+
+    public void DisplayText()
     {        
-        return $"{_book} {_chapter}:{_verse}-{_endVerse}";           
+        Console.WriteLine($"{_book} {_chapter}:{_verse}-{_endVerse}");           
     }
 
 }
