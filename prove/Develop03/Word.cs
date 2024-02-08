@@ -30,7 +30,20 @@ public class Word
 
     public string GetDisplayText()
     {
-        return _text;        
+        if (_isHidden == false)
+        {
+            Console.Write($"{_text} ");
+        }
+
+        else
+        {
+            foreach (char item in _text)
+            {
+                Console.Write('_');
+            }
+
+            Console.Write(' ');
+        }        
     }
 
 }

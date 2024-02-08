@@ -18,11 +18,11 @@ class Program
         shapes.Add(circle);
 
 
-        foreach (Shape s in shapes)
+        foreach (Shape shape in shapes)
         {
             
-            string color = s.GetColor();
-            double area = s.GetArea();
+            string color = shape.GetColor();
+            double area = shape.GetArea();
             
             Console.WriteLine($"The {color} shape has an area of {area}.");
              

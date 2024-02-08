@@ -13,7 +13,7 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    public string GetDisplayText()
+    public string DisplayText()
     {        
         return $"{_book} {_chapter}:{_verse}-{_endVerse}";           
     }
