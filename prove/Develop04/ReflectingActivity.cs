@@ -1,7 +1,7 @@
-public class Reflecting: Activity
+public class ReflectingActivity: Activity
 {
-    List<string> _questions = new List<string>();
-    List<string> _prompts = new List<string>();
+    private List<string> _questions = new List<string>();
+    private List<string> _prompts = new List<string>();
 
     public ReflectingActivity()
     {
