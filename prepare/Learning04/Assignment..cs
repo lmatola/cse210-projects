@@ -19,7 +19,6 @@ public class Assignment
         return _topic;
     }
 
-
     public void SetTopic(string topic)
     {
         _topic = topic;
@@ -30,7 +29,4 @@ public class Assignment
     {
         return $"{_name} - {_topic}";
     }
-
-
-
 }

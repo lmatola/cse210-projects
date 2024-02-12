@@ -25,7 +25,6 @@ public class MathAssignment: Assignment
         _problems = problems;
     }
 
-
     public string GetHomeWorkList()
     {
         return $"{_name} - {_topic} \nSection {_textBookSection} Problems {_problems}";
