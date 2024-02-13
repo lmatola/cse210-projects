@@ -22,26 +22,24 @@ public class ReflectingActivity : Activity
      "How can you keep this experience in mind in the future?"
     };
 
-    // Constructor
-    public ReflectingActivity()
+    public ReflectingActivity() : base()
     {
-        _name = "Reflecting Activity";
-        _description = "This activity will help you reflect on times in your life when you have shown strength and resilience.  \nThis will help you recognize the power you have and how you can use it in other aspects of your life.";
-        
-    }
 
-    // Methods
+    }
+    public ReflectingActivity(string name, string description) : base(name, description)
+    {
+  
+    }
     public string GetRandomPrompt()
     {
         Random rnd = new Random();
         int index = rnd.Next(_prompt.Count);
         return _prompt[index] ;
     }
-
     public string GetRandomQuestion()
     {
-        Random random = new Random();
-        int index = random.Next(_question.Count);
+        Random rnd = new Random();
+        int index = rnd.Next(_question.Count);
         return _question[index];
     }
 
@@ -50,7 +48,7 @@ public class ReflectingActivity : Activity
         Console.Clear();
         DisplayStartingMessage();
         Console.WriteLine("Think about this prompt for a moment:\n");
-        Console.WriteLine($">{GetRandomPrompt()}");
+        Console.WriteLine($"=> {GetRandomPrompt()}");
         Console.WriteLine("\nPress enter when you are ready.");
         Console.ReadLine();
 
@@ -68,7 +66,5 @@ public class ReflectingActivity : Activity
         stopwatch.Stop();
         Console.CursorVisible = true;
         DisplayEndingMessage();
-
-
     }
 }

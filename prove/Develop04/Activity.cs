@@ -7,56 +7,19 @@ public class Activity
     protected string _name = " ";
     protected string _description = " ";
     protected int _duration = 0;
-    private List<string> animationStrings = new List<string>()
+    private List<string> _animation = new List<string>()
     {"|", "-", "\\", "/", "_"};
   
-
     public Activity()
     {
 
     }
 
-     public string GetName()
-    {
-        return _name;
-    }
-
-
-    public void SetName(string name)
-    {
-        _name = name;
-    }
-
-
-    public string GetDescription()
-    {
-        return _description;
-    }
-
-
-    public void SetDescription(string description)
-    {
-        _description = description;
-    }
-
-    
-    public int GetDuration()
-    {
-        return _duration;
-    }
-
-
-    public void SetDuration(int duration)
-    {
-        _duration = duration;
-    }
-
-
-    public Activity(string name, string description, int duration)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
-        _duration = duration;
+              
     }
 
     public void DisplayStartingMessage()
@@ -70,7 +33,7 @@ public class Activity
 
         Console.Clear();
         Console.Write("Get Ready...");
-        GetPauseAnimation(5);
+        ShowSpinner(5);
         Console.WriteLine("\n");
         
     }
@@ -79,14 +42,15 @@ public class Activity
     public void DisplayEndingMessage()
     {
         Console.WriteLine("Well done!!");
-        GetPauseAnimation(5);
+        ShowSpinner(5);
         Console.WriteLine();
         Console.WriteLine($"You have completed {_duration} seconds of the {_name}.");
-        GetPauseAnimation(5);
+        ShowSpinner(5);
     }
 
-    public void GetTimer(int duration) // Used in the Reflecting and Observation class activities
-    {        
+    public void GetTimer(int duration)
+    {   
+        _duration = duration;      
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(duration);
 
@@ -99,8 +63,7 @@ public class Activity
         }
     }
 
-
-    public void GetPauseAnimation(int duration)
+    public void ShowSpinner(int duration)
     {
         
         DateTime startTime = DateTime.Now;
@@ -111,9 +74,9 @@ public class Activity
         Console.CursorVisible = false;
         while (DateTime.Now < endTime)
         {
-            string s = animationStrings[x];
-            Console.Write(s);
-            Thread.Sleep(250);
+            string str = _animation[x];
+            Console.Write(str);
+            Thread.Sleep(300);
             Console.Write("\b \b");
 
             i++;
@@ -123,23 +86,18 @@ public class Activity
         Console.CursorVisible = true;
     }
     
-    public void ShowSpinner(int seconds)
-    {
-
-    }
-
-    public void ShowCountDown(int seconds)
+    public void ShowCountDown(int duraction)
     {
 
         DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(seconds);
+        DateTime futureTime = startTime.AddSeconds(duraction);
         Console.CursorVisible = false;
         while (DateTime.Now < futureTime)
         {
-            Console.Write(seconds);
+            Console.Write(duraction);
             Thread.Sleep(1000);
             Console.Write("\b \b");
-            seconds--;
+            duraction--;
         }
         Console.CursorVisible = true;
 

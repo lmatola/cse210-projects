@@ -4,41 +4,25 @@ using System.Diagnostics;
 
 public class ListingActivity: Activity
 {
-    private int _count;
+    private int _count = 0;
     private List<string> _prompts = new List<string>()
     {
+        "Who are people that you appreciate?",
         "What are personal strengths of yours?",
         "Who are people you have helped this week?",
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?"
     };
 
-    public ListingActivity() 
+    public ListingActivity() : base()
     {
-       _name = "Listing Activity";
-       _description = "This activity will help you reflect on the good things in your life by having yout list as many things as you can in a certain area.";
+
     }
 
-    public int GetCount()
+    public ListingActivity(string name, string description) : base(name, description)
     {
-        return _count;
+  
     }
-
-    public void SetCount(int count)
-    {
-        _count = count;
-    }
-
-    public List<string> GetPrompt()
-    {
-        return _prompts = new List<string>();
-    }
-
-    public void SetPrompt(List<string> prompt)
-    {
-        _prompts = prompt;
-    }
-
 
     public string GetRandomPrompt() 
     {     
@@ -56,17 +40,17 @@ public class ListingActivity: Activity
        
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
-        int counter = 0;
+        int _count = 0;
         
         
         while (stopwatch.Elapsed.TotalSeconds < _duration)
         {
             Console.Write("=> ");
             Console.ReadLine();
-            counter++;
+            _count++;
         } 
 
-        Console.WriteLine($"\nYou listed {counter} items.");
+        Console.WriteLine($"\nYou listed {_count} items.");
 
         stopwatch.Stop();
 
