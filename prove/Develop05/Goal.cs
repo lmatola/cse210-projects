@@ -2,45 +2,44 @@ using System;
 
 public abstract class Goal
 {
-    protected string _shortName;
-    protected string _description;
-    protected int _points;   
+    private string _goalType;
+    private string _shortName;
+    private string _description;
+    private int _points;
+    private bool _isComplete;
 
-    public Goal()
+    public Goal(string goalType, string shortName, string description, int points, bool isComplete)
     {
-
-    }
-
-    public Goal(string shortName, string description, int points)
-    {
+        _goalType = goalType;
         _shortName = shortName;
         _description = description;
         _points = points;
+        _isComplete = isComplete;
     }
-
-    public string GetshortName()
+    public string GetGoalType()
+    {
+        return _goalType;
+    }    
+    
+    public string GetName()
     {
         return _shortName;
     }
-
     public string GetDescription()
     {
         return _description;
     }
-
     public int GetPoints()
     {
         return _points;
     }
-
-    public abstract void RecordEvent();
-    public abstract bool IsComplete();
-    public virtual string GetDetailsString()
+    public bool IsComplete()
     {
-        return " ";
+        return _isComplete;
     }
 
+    public abstract void GetDetailsString(int i);
     public abstract string GetStringRepresentation();
+    public abstract string LoadGoal();
+    public abstract void RecordGoalEvent(List<Goal> goals);
 }
-
-

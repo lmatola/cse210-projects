@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 public class ListingActivity: Activity
 {
-    private int _count = 0;
+    //private int _count = 0;
     private List<string> _prompts = new List<string>()
     {
         "Who are people that you appreciate?",
@@ -56,8 +56,7 @@ public class ListingActivity: Activity
 
         DisplayEndingMessage();
         
-    }
-    
+    }    
 
     
     // public List<string> GetListFromUser() 

@@ -29,10 +29,10 @@ public class BreathingActivity: Activity
        int duration = _duration;
        while (duration > 0)
        {
-            Console.Write("Breath in.....");
+            Console.Write("Breathe in.....");
             ShowCountDown(_breatheInTime);
             Console.WriteLine("\n");
-            Console.Write("Breath out.....");
+            Console.Write("Now breathe out.....");
             ShowCountDown(_breatheOutTime);
             Console.WriteLine("\n");
             duration -= _breatheInTime + _breatheOutTime;

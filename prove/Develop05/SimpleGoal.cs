@@ -1,40 +1,45 @@
 using System;
 
-public class SimpleGoal: Goal 
+public class SimpleGoal : Goal
 {
-    private bool _isComplete;
-
-    public SimpleGoal() 
+    private string _type = "Simple Goal:";
+    public SimpleGoal(string goalType, string name, string description, int points, bool status) : base(goalType, name, description, points, status)
     {
-        
-    } 
 
-
-    public SimpleGoal( string shortName, string description, int points, bool isComplete) : base(shortName,description,points)
-    {
-        _isComplete = IsComplete();
-    } 
-
-    public bool GetIsComplete()
-    {
-        return _isComplete;
     }
 
-    public override void RecordEvent()
+
+    public override void GetDetailsString(int i)
     {
-        _isComplete = true;
-        
+        if (IsComplete() == false)
+        {
+            Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()})");
+        }
+        else if (IsComplete() == true)
+        {
+            Console.WriteLine($"{i}. [X] {GetName()} ({GetDescription()})");
+        }
     }
 
-    public override bool IsComplete()
-    {
-        return false;
-    } 
 
     public override string GetStringRepresentation()
     {
-        string goalType = GetType().Name;
-        return ($"{goalType},{_shortName},{_description},{_points}");
+        return ($"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {IsComplete}");
+    }
+
+
+    public override string LoadGoal()
+    {
+        return ($"{_type}; {GetName()}; {GetDescription()}; {GetPoints()}; {IsComplete}");
+    }
+
+    
+    public override void RecordGoalEvent(List<Goal> goals)
+    {
+       if (IsComplete() == true)
+       {
+       Console.WriteLine($"Congratulations! You have earned {GetPoints()} points");
+       }
     }
 
 }
