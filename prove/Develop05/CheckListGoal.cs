@@ -8,12 +8,12 @@ public class CheckListGoal : Goal
     private int _amountCompleted;
 
 
-    // public CheckListGoal(string goalType, string shortName, string description, int points, int target, int bonus, bool isComplete) : base(goalType, shortName, description, points, isComplete)
-    // {
-    //     _target = target;
-    //     _bonus = bonus;
-    //     _amountCompleted = 0;
-    // }
+    public CheckListGoal(string goalType, string shortName, string description, int points, bool isComplete, int target, int bonus) : base(goalType, shortName, description, points, isComplete)
+    {
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = 0;
+    }
 
 
     public CheckListGoal(string goalType, string shortName, string description, int points, bool isComplete, int target, int bonus, int amountCompleted) : base(goalType, shortName, description, points, isComplete)
@@ -48,7 +48,7 @@ public class CheckListGoal : Goal
     }
 
 
-    public override void GetDetailsString(int i)
+    public override void ListGoal(int i)
     {
         if (IsComplete() == false)
         {
@@ -72,7 +72,7 @@ public class CheckListGoal : Goal
         return ($"{_goalType}; {GetName()}; {GetDescription()}; {GetPoints()}; {IsComplete}; {GetTarget()}; {GetBonus()}; {GetAmountCompleted()}");
     }
 
-    
+
     public override void RecordGoalEvent(List<Goal> goals)
     {
         SetTarget();

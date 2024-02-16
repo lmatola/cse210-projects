@@ -49,7 +49,7 @@ public class GoalManager
     }
 
 
-    public void ListGoal()
+    public void ListGoals()
     {
         if (_goals.Count() > 0)
         {
@@ -59,7 +59,7 @@ public class GoalManager
             int index = 1;
             foreach (Goal goal in _goals)
             {
-                goal.GetDetailsString(index);
+                goal.ListGoal(index);
                 index = index + 1;
             }
         }
@@ -86,7 +86,7 @@ public class GoalManager
         Console.WriteLine($"You have {GetScore()} points!.");
     }
 
-    
+
     public void SaveGoals()
     {
         Console.Write("What is the name for this goal file?  ");

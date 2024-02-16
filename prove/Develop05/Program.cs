@@ -52,8 +52,8 @@ class Program
                         Console.Write("What is the amount of points associated with this goal?  ");
                         int points = int.Parse(Console.ReadLine());
                         bool isComplete = false;
-                        SimpleGoal sGoal = new SimpleGoal("Simple Goal:", shortName, description, points, isComplete);
-                        goals.AddGoal(sGoal);
+                        SimpleGoal simpleGoal = new SimpleGoal("Simple Goal:", shortName, description, points, isComplete);
+                        goals.AddGoal(simpleGoal);
                     }
 
                     if (userAnswer == 2)
@@ -65,8 +65,8 @@ class Program
                         Console.Write("What is the amount of points associated with this goal?  ");
                         int points = int.Parse(Console.ReadLine());
                         bool isComplete = false;
-                        EternalGoal eGoal = new EternalGoal("Eternal Goal:", shortName, description, points, isComplete);
-                        goals.AddGoal(eGoal);
+                        EternalGoal eternalGoal = new EternalGoal("Eternal Goal:", shortName, description, points, isComplete);
+                        goals.AddGoal(eternalGoal);
                     }
                     
 
@@ -83,14 +83,14 @@ class Program
                         Console.Write("What is the bonus for accomplishing it that many times?  ");
                         int bonus = int.Parse(Console.ReadLine());
                         bool isComplete = false;
-                        CheckListGoal clGoal = new CheckListGoal("Check List Goal:", shortName, description, points, target, bonus, isComplete);
-                        goals.AddGoal(clGoal);
+                        CheckListGoal checkListGoal = new CheckListGoal("Check List Goal:", shortName, description, points, isComplete, target, bonus);
+                        goals.AddGoal(checkListGoal);
                     }
                 } 
 
             else if (menu == 2)
             {
-                goals.ListGoals();
+                goals.GetGoalsList();
             }
 
             else if (menu == 3)

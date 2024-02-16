@@ -38,7 +38,7 @@ public abstract class Goal
         return _isComplete;
     }
 
-    public abstract void GetDetailsString(int i);
+    public abstract void ListGoal(int i);
     public abstract string GetStringRepresentation();
     public abstract string LoadGoal();
     public abstract void RecordGoalEvent(List<Goal> goals);
