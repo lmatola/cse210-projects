@@ -29,7 +29,8 @@ public class Order
     public void PrintShippingLabel()
     {
         
-        Console.WriteLine("Shipping Label: ");
+        Console.WriteLine("
+        Shipping Label: ");
         Console.WriteLine(_customer.GetCustomerName());
         Console.WriteLine(_customer.GetCustomerAddress().GetAddress());
     }
@@ -50,8 +51,7 @@ public class Order
         {
             productOrder += product.GetSubtotalPrice();
         }
-
-
+        
         return Math.Round(productOrder, 2);
     }
 
@@ -60,7 +60,4 @@ public class Order
         Product product = new Product(name, id, price, quantity);
         _productList.Add(product);
     }
-
-
-
 }

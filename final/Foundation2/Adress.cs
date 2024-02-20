@@ -2,8 +2,6 @@ using System;
 
 public class Address
 {
-    
-
     // Member Variables
     private string _streetAddress;
     private string _city;
@@ -42,6 +40,4 @@ public class Address
         _stateOrProvince = state;
         _country = country;
     }
-
-
 }
